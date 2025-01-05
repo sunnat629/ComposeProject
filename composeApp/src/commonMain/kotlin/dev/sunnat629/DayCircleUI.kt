@@ -1,3 +1,7 @@
+/**
+ * Inspired by shttps://dribbble.com/shots/2867210-Sunset-sunrise-widget-animation
+ **/
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -39,11 +43,11 @@ fun SunriseNSunsetUI() {
         val greeting = remember { Greeting().greet() }
         Text("Compose: $greeting")
 
-              Box(
+        Box(
             modifier = Modifier.fillMaxSize().background(Color.LightGray.copy(alpha = 0.3f)),
             contentAlignment = Alignment.Center
         ) {
-                 CircularSunriseSunset()
+            CircularSunriseSunset()
         }
     }
 }
@@ -54,8 +58,8 @@ fun CircularSunriseSunset() {
     val sunset = LocalTime(hour = 16, minute = 0)
     val currentTime = remember { mutableStateOf(LocalTime(hour = 14, minute = 30, second = 0)) }
 
-            val dayColor = remember { Color(0xFFFFA726) }
-            val nightColor = remember { Color(0xFF90CAF9) }
+    val dayColor = remember { Color(0xFFFFA726) }
+    val nightColor = remember { Color(0xFF90CAF9) }
 
     //
     //    LaunchedEffect(Unit) {
@@ -160,12 +164,18 @@ fun CircularSunriseSunset() {
         Icon(painter = painterResource(Res.drawable.ic_sunrise), contentDescription = null, tint = nightColor)
         Spacer(modifier = Modifier.height(4.dp))
         Text("Sunset", fontSize = 16.sp, color = Color.Gray)
-        Text("${sunset.hour.toString().padStart(2, '0')}:${sunset.minute.toString().padStart(2, '0')}", fontSize = 24.sp)
+        Text(
+            "${sunset.hour.toString().padStart(2, '0')}:${sunset.minute.toString().padStart(2, '0')}",
+            fontSize = 24.sp
+        )
         Spacer(modifier = Modifier.height(8.dp))
         Text("${currentTime.value}", fontSize = 24.sp)
         Spacer(modifier = Modifier.height(8.dp))
         Text("Sunrise", fontSize = 16.sp, color = Color.Gray)
-        Text("${sunrise.hour.toString().padStart(2, '0')}:${sunrise.minute.toString().padStart(2, '0')}", fontSize = 24.sp)
+        Text(
+            "${sunrise.hour.toString().padStart(2, '0')}:${sunrise.minute.toString().padStart(2, '0')}",
+            fontSize = 24.sp
+        )
         Spacer(modifier = Modifier.height(4.dp))
         Icon(imageVector = Icons.Default.WbTwilight, contentDescription = null, tint = dayColor)
     }
