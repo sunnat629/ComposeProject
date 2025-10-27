@@ -20,7 +20,8 @@ fun App() {
         ) {
             // Soon, I will add Home...
             //        SunriseNSunsetUI()
-            SpiralAnimationView()
+            // TODO: Implement SpiralAnimationView
+            // SpiralAnimationView()
         }
     }
 }
